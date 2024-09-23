@@ -12,6 +12,7 @@ import Register from './pages/Register'
 import PrivateRoute from './components/PrivateRoute'
 
 
+
 const App = () => {
   const location=useLocation()
   console.log(location.pathname)
@@ -29,6 +30,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/shop' element={<Shop />} />
+  
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={
