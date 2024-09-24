@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import useAuth from '../hooks/useAuth'
+import useCart from '../hooks/useCart'
 
 const Navbar = () => {
     const[collpased,setCollpased]=useState(false)
@@ -13,6 +14,9 @@ const Navbar = () => {
 
     const {isLoggedIn,isloading,isUserlogged,signOut}=useAuth()
     console.log(isLoggedIn)
+
+    // cart-icon value
+    const {IconTotal}=useCart()
 
    const handleSignout=async()=>{
       let success= await signOut()
@@ -53,7 +57,10 @@ const Navbar = () => {
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
         {/* cart start */}
       <li className="nav-item px-1 ">
-          <NavLink className=" btn btn-outline-success " to={'/cart'} ><i className="bi bi-bag"></i></NavLink>
+          <NavLink className=" btn btn-outline-success " to={'/cart'} >
+          <i className="bi bi-bag"></i>
+          {IconTotal!==0?IconTotal:null}
+          </NavLink>
         </li>
          {/* cart end */}
        {isLoggedIn?(

@@ -8,6 +8,7 @@ import '/node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import AuthContext from './store/AuthContext.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import ProductProvider from './store/ProductContext.jsx';
+import CartProvider from './store/CartContext.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -15,7 +16,9 @@ createRoot(document.getElementById('root')).render(
         <BrowserRouter>
             <AuthContext>
                 <ProductProvider>
-                    <App />
+                    <CartProvider>
+                        <App />
+                    </CartProvider>
                 </ProductProvider>
                 <ToastContainer />
             </AuthContext>
