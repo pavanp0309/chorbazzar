@@ -10,6 +10,7 @@ import Cart from './pages/Cart'
 import LoginIn from './pages/LoginIn'
 import Register from './pages/Register'
 import PrivateRoute from './components/PrivateRoute'
+import ResetPassword from './pages/ResetPassword'
 
 
 
@@ -17,7 +18,7 @@ const App = () => {
   const location=useLocation()
   console.log(location.pathname)
 
-  let navPath=["/loginin","/register"]
+  let navPath=["/loginin","/register","/reset"]
 
   let hideNavbar=navPath.includes(location.pathname)
   console.log(hideNavbar)
@@ -40,6 +41,7 @@ const App = () => {
           } />
           <Route path='/register' element={<Register />} />
           <Route path='/loginin' element={<LoginIn />} />
+          <Route path='/reset' element={<ResetPassword />} />
         </Routes>
      
 

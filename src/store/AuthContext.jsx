@@ -2,7 +2,7 @@ import {useState,useEffect,createContext} from 'react'
 import { auth } from '../services/firebaseconfig'
 import { createUserWithEmailAndPassword,signOut as firebaseSignOut,
   signInWithEmailAndPassword,setPersistence,
-  browserLocalPersistence,onAuthStateChanged  } from "firebase/auth";
+  browserLocalPersistence,onAuthStateChanged,sendPasswordResetEmail  } from "firebase/auth";
 import { toast } from 'react-toastify';
 
 // 1.creating the store
@@ -82,11 +82,21 @@ useEffect(()=>{
     }
   }
 
-
+// resetting the password 
+const resetPassword=async(email)=>{
+  try{
+    await sendPasswordResetEmail(auth, email)
+    toast.success("reset mail sent successfully")
+    return true
+  }catch{
+    toast.error("failed to send reset mail ")
+    return false
+  }
+}
 
 
   return (
-   <AuthContexts.Provider  value={{createUser,userLogin,isLoggedIn,isUserlogged,isloading,signOut}}>
+   <AuthContexts.Provider  value={{createUser,userLogin,isLoggedIn,isUserlogged,isloading,signOut,resetPassword}}>
      {children}
    </AuthContexts.Provider>
   )

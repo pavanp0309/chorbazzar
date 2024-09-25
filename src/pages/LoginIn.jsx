@@ -69,6 +69,7 @@ const LoginIn = () => {
             <div className="d-grid gap-2 col-6 mx-auto">
               <button className="btn btn-primary" type="submit">SignIn</button>
               <Link className="nav-link btn btn-outline-success text-dark p-2" to={'/register'}  >Register</Link>
+              <Link className="nav-link btn btn-outline-success text-dark p-2" to={'/reset'}  >Resetpassword</Link>
           </div>
           </form>
 
